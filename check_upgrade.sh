@@ -26,6 +26,6 @@ fi
 
 if [ ! -z "$packages_to_upgrade" ]; then
     res=$(echo $packages_to_upgrade | tr ' ' '\n' | sort | uniq -c)
-    mail -s "Proxmox upgrade list" root <<< "Packages waiting for upgrade\n$res"
+    echo -e "Packages waiting for upgrade\n\n$res" | mail -s "Proxmox upgrade list" root
 fi
 
